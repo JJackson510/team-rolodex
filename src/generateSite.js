@@ -82,7 +82,7 @@ return `
     <title>Team Rolodex</title>
 </head>
 <body>
-    
+    ${generateTeam(team)}
 </body>
 </html>
 `

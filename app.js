@@ -45,14 +45,13 @@ const promptMenu = () => {
     ])
     .then(userChoices => {
         switch(userChoices.menu) {
-            case 'and an intern':
+            case 'add an intern':
                 promptIntern();
-                break;
+                break
                 case 'add an engineer':
                     promptEngineer();
-                    break;
-                    default:
-                        teamDone();
+                    break
+                    
         }
     });
 };

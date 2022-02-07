@@ -120,7 +120,7 @@ const promptIntern = () => {
     ])
     .then(answers => {
         console.log(answers);
-        const intern = new Intern(answers.name,answers,email,answers.school,answers.id);
+        const intern = new Intern(answers.name,answers.email,answers.school,answers.id);
         teamMembers.push(intern);
         promptMenu();
     })

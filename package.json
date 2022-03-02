@@ -3,7 +3,8 @@
     "jest": "^27.4.7"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node app.js"
   },
   "dependencies": {
     "inquirer": "^8.2.0"

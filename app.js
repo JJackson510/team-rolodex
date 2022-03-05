@@ -26,12 +26,38 @@ const promptManager = () =>{
         },
         {
             type: 'input',
+            name: 'id',
+            message: `Please enter your employee id. (Required)`,
+            validate: id => {
+                if (id) {
+                    return true
+                } else {
+                    console.log(`Oops! You did not enter an employee id. Please enter an employee id.`);
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: `Please enter your email address. (Required)`,
+            validate: email => {
+                if (email) {
+                    return true
+                } else {
+                    console.log(`Oops! You did not enter an email address. Please enter an email address.`);
+                    return false
+                }
+            }
+        },
+        {
+            type: 'input',
             name:'number',
             message: 'Please enter a valid office number',
         }
     ]) .then(answers => {
         console.log(answers);
-        const manager = new Manager(answers.name,answers.id, answers.officeNumber, answers.email);
+        const manager = new Manager(answers.name,answers.id,answers.email,answers.officeNumber);
         teamMembers.push(manager);
         promptMenu();
     })
@@ -54,6 +80,8 @@ const promptMenu = () => {
                 case 'add an engineer':
                     promptEngineer();
                     break
+                    case 'finish building my team':
+                        teamDone();
                     
         }
     });
@@ -207,5 +235,7 @@ const teamDone = () => {
         fs.mkdirSync(output_dir)
     }
     fs.writeFileSync(outputPath, generateSite(teamMembers), 'utf-8');
+    
 }
 promptManager();
+        
